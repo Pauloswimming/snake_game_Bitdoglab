@@ -226,7 +226,7 @@ void joystick_init() {
 
 #pragma region BUTTONS
 
-#define BUTTON_A 5 
+#define BUTTON_A 5  // Alterado para o botão A (altere o número do pino conforme necessário)
 #define DEBOUNCE_DELAY_MS 120
 
 volatile bool paused = false;
@@ -248,11 +248,11 @@ void gpio_irq_callback(uint gpio, uint32_t events) {
 }
 
 void button_init() {
-  gpio_init(BUTTON_A);  
-  gpio_set_dir(BUTTON_A, GPIO_IN);  
-  gpio_pull_up(BUTTON_A); 
+  gpio_init(BUTTON_A);  // Alterado para BUTTON_A
+  gpio_set_dir(BUTTON_A, GPIO_IN);  // Alterado para BUTTON_A
+  gpio_pull_up(BUTTON_A);  // Alterado para BUTTON_A
   gpio_set_irq_enabled_with_callback(BUTTON_A, GPIO_IRQ_EDGE_FALL, 
-                                    true, gpio_irq_callback);  
+                                    true, gpio_irq_callback);  // Alterado para BUTTON_A
   last_interrupt_time = nil_time;
 }
 
