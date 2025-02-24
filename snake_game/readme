@@ -1,38 +1,114 @@
-Snake Game na BitDogLab
-Descrição
-O projeto Snake Game na BitDogLab consiste no desenvolvimento de um jogo Snake (Cobrinha) utilizando a placa educacional BitDogLab, baseada na Raspberry Pi Pico. O jogo é exibido em uma matriz de LEDs NeoPixel 5x5 e controlado por um joystick analógico, proporcionando uma experiência interativa e educativa em sistemas embarcados.
+Snake Game - BitDogLab
+Este projeto é uma implementação do clássico jogo Snake para a placa educacional BitDogLab, baseada na Raspberry Pi Pico. O jogo utiliza uma matriz de LEDs NeoPixel 5x5 para exibição, um joystick analógico para controle e um display OLED para mostrar a pontuação e mensagens de status. O projeto foi desenvolvido como parte do Projeto Escola 4.0 da Unicamp, com o objetivo de promover o aprendizado prático de eletrônica e programação.
 
-Observação: O código foi escrito e organizado de forma extremamente legível, facilitando a leitura, compreensão e manutenção.
-
-Objetivos
-Proporcionar uma experiência de jogo interativa e educativa em um sistema embarcado de baixo custo.
-Demonstrar a integração de componentes de hardware (LEDs, joystick, botões) com software embarcado.
-Servir como ferramenta de aprendizado em programação C, manipulação de GPIOs e controle de periféricos.
-Requisitos
-Hardware
-Placa BitDogLab (Raspberry Pi Pico)
-Matriz de LEDs NeoPixel 5x5
-Joystick analógico
-Botão A (conectado ao GPIO5)
-Software
-Linguagem C
-Biblioteca para controle dos LEDs NeoPixel
-Ambiente de desenvolvimento compatível com a Raspberry Pi Pico (ex.: VS Code com extensões para C/C++)
 Funcionalidades
-Exibição gráfica da cobrinha (verde), frutas (vermelho) e paredes (azul) na matriz de LEDs.
-Controle da movimentação por joystick analógico.
-Crescimento da cobrinha ao comer frutas.
-Detecção de colisão e término do jogo.
-Pausa e retomada do jogo via botão A (GPIO5).
-Expansível para integração com display OLED, buzzers e módulos de comunicação.
-Como Executar
-Configurar o ambiente de desenvolvimento com as bibliotecas necessárias.
-Carregar o código para a Raspberry Pi Pico utilizando o compilador adequado.
-Conectar os componentes conforme os requisitos de hardware.
-Executar o jogo e controlar a cobrinha com o joystick analógico.
-Expansões Futuras
-Adição de pontuação em um display OLED.
-Implementação de efeitos sonoros com buzzers.
-Comunicação com outros dispositivos via UART, I2C ou SPI.
+Exibição do jogo: Utiliza uma matriz de LEDs NeoPixel 5x5 para exibir a cobrinha, a fruta e as bordas do tabuleiro.
+
+Controle preciso: O joystick analógico permite movimentar a cobrinha com suavidade e precisão.
+
+Pontuação e status: O display OLED exibe a pontuação atual e mensagens como "PAUSED" quando o jogo é pausado.
+
+Efeitos sonoros: O buzzer gera tons ao mover a cobrinha, capturar frutas e encerrar o jogo.
+
+Expansibilidade: O hardware permite a conexão de mais LEDs NeoPixel e outros periféricos através dos conectores de expansão.
+
+Componentes Utilizados
+Raspberry Pi Pico: Microcontrolador principal.
+
+Matriz de LEDs NeoPixel 5x5: Exibição visual do jogo.
+
+Joystick Analógico (KY023): Controle da cobrinha.
+
+Botão A (GPIO5): Pausa/retoma o jogo.
+
+Display OLED 128x64: Exibe pontuação e mensagens de status.
+
+Buzzer Passivo (GPIO21): Gera efeitos sonoros.
+
+Conectores de Expansão: Permitem a conexão de módulos externos, como sensores e motores.
+
+Estrutura do Projeto
+O projeto está organizado em camadas funcionais:
+
+Camada de Hardware: Interface com os componentes físicos.
+
+Camada de Firmware: Controle de baixo nível dos periféricos.
+
+Camada de Interface: Comunicação simplificada com o hardware.
+
+Camada de Lógica do Jogo: Implementação das regras e mecânicas do jogo.
+
+Camada de Aplicação: Coordenação geral e execução do jogo.
+
+Como Executar o Projeto
+1. Configuração do Ambiente de Desenvolvimento
+Ferramentas Necessárias:
+
+Raspberry Pi Pico SDK.
+
+CMake.
+
+GCC Arm Toolchain.
+
+Visual Studio Code (opcional).
+
+2. Compilação do Projeto
+Clone o repositório:
+
+bash
+Copy
+git clone https://github.com/Fruett/BitDogLab.git
+cd BitDogLab/snake_game_Bitdoglab
+Crie o diretório de build e compile o projeto:
+
+bash
+Copy
+mkdir build
+cd build
+cmake ..
+make
+3. Gravação do Firmware na Raspberry Pi Pico
+Conecte a Raspberry Pi Pico ao computador via USB.
+
+Copie o arquivo .uf2 gerado para a unidade USB da Pico.
+
+4. Execução do Jogo
+Controles:
+
+Joystick: Movimentação da cobrinha.
+
+Botão A: Pausa/retoma o jogo.
+
+Testes de Validação
+Matriz de LEDs: Todos os LEDs funcionaram corretamente.
+
+Joystick: Valores consistentes para cada direção.
+
+Botão A: Alternância correta do estado de pausa.
+
+Movimentação da Cobrinha: Funcionamento correto em todas as direções.
+
+Colisões: Detecção de colisões com paredes e corpo da cobrinha.
+
+Geração de Frutas: Posições aleatórias sem sobreposição com a cobrinha.
+
+Referências
+Documentação da Raspberry Pi Pico:
+
+Disponível em: Raspberry Pi Pico Documentation.
+
+Repositório do Projeto no GitHub:
+
+Acesso em: snake_game_Bitdoglab.
+
+BitDogLab no GitHub:
+
+Disponível em: BitDogLab GitHub.
+
+Vídeo Demonstrativo
+Descrição: Vídeo mostrando as funcionalidades do jogo Snake na placa BitDogLab.
+
+Disponível em: Vídeo da Snake Game.
+
 Licença
-Este projeto é de código aberto e pode ser utilizado para fins educacionais e experimentais.
+Este projeto é open-source e está licenciado sob a Licença MIT. Sinta-se à vontade para copiar, modificar e distribuir conforme necessário.
